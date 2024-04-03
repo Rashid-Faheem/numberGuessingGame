@@ -4,7 +4,7 @@ import inquirer from "inquirer";
 const systemGenNo = Math.floor(Math.random() * 10);
 let counter: number = 4;
 let correct:boolean = false;
-console.log(systemGenNo);
+// console.log(systemGenNo);
 while (correct === false && counter > 0) {
   let userNo = await inquirer.prompt([
     {
