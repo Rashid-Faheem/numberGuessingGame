@@ -1,11 +1,24 @@
-import inquirer from 'inquirer';
+#! /usr/bin/env node
+import inquirer from "inquirer";
 const systemGenNo = Math.floor(Math.random() * 10);
+let counter = 4;
+let correct = false;
 console.log(systemGenNo);
-let userNo = await inquirer.prompt([
-    {
-        name: "userinp",
-        type: "number",
-        message: "Enter number between 0 to 10"
+while (correct === false && counter > 0) {
+    let userNo = await inquirer.prompt([
+        {
+            name: "userinp",
+            type: "number",
+            message: "Enter number between 0 to 10",
+        },
+    ]);
+    if (userNo.userinp === systemGenNo) {
+        console.log('Congratulations! your number is Correct');
+        correct = true;
     }
-]);
-console.log(userNo.userinp);
+    else {
+        counter--;
+        console.log(`Sorry! your number is not Correct remaing attempt ${counter}`);
+        correct = false;
+    }
+}
